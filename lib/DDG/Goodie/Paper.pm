@@ -5,7 +5,7 @@ use DDG::Goodie;
 triggers any => 'paper', 'size';
 
 handle query_lc => sub {
-	return unless my ($s, $l, $n) = $_ =~ /^((?:(a|b|c)(\d{0,2})?)|legal|letter|junior\s*legal|ledger|tabloid)\s+paper\s+(?:size|dimm?ensions?)$/i;
+	return unless my ($s, $l, $n) = $_ =~ /^((?:(a|b|c)(\d{0,2}))|a|b|c|d|e|quarto|foolscap|executive|government\s*-?letter|post|crown|large post|demy|medium|royal|elephant|double demy|quad demy|statement|legal|letter|junior\s*legal|ledger|tabloid)\s+paper\s+(?:size|dimm?ensions?)$/i;
 	if ($n){
 		last if($n > 10);
 	}
@@ -19,6 +19,25 @@ handle query_lc => sub {
 		"ledger" => "432mm x 279mm  (17in x 11in)",
 		"tabloid" => "279mm x 432mm  (11in x 17in)",
 		"a" => "216mm x 279mm  (8.5in x 11in)",
+		"b" => "279mm x 432mm  (11in x 17in)",
+		"c" => "432mm x 559mm  (17in x 22in)",
+		"d" => "559mm x 864mm  (22in x 34in)",
+		"e" => "864mm x 118mm  (34in x 44in)",
+		"quarto" => "203mm x 254mm  (8in x 10in)",
+		"foolscap" => "203mm x 330mm  (8in x 13in)",
+		"executive" => "184mm x 267mm  (7.25 x 10.25)",
+		"government letter" => "203mm x 267mm  (8in x 10.5in)",
+		"government-letter" => "203mm x 267mm  (8in x 10.5in)",
+		"post" => "394mm x 489mm  (15.5in x 19.25in)",
+		"crown" => "381mm x 508mm  (15in x 20in)",
+		"large post" => "419mm x 533mm  (16.5in x 21in)",
+		"demy" => "445mm x 572mm  (17.5in x 22.5in)",
+		"medium" => "457mm x 584mm  (18in x 23in)",
+		"royal" => "508mm x 635mm  (20in x 25in)",
+		"elephant" => "584mm x 711mm  (23in x 28in)",
+		"double demy" => "572mm x 889mm  (22.5in x 35in)",
+		"quad demy" => "889mm x 1149mm  (35in x 45in)",
+		"statement" => "140mm x 216mm  (5.5in x 8.5in)",
 		"a0" => "841mm x 1189mm  (33.11in x 46.81in)",
 		"a1" => "594mm x 841mm  (23.39in x 33.11in)",
 		"a2" => "420mm x 594mm  (16.54in x 23.39in)",
